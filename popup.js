@@ -2,7 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 'use strict';
-
+function closeLastTab() {
+    chrome.runtime.sendMessage(
+        { 
+            msg: "tab_close_msg"
+        }, 
+        function (response) {
+            console.log("response from the bg", response)
+        }
+    );
+}
 function setAlarm(event) {
   const minutes = parseFloat(event.target.value);
   chrome.action.setBadgeText({ text: 'ON' });
