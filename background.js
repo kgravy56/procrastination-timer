@@ -8,9 +8,9 @@ chrome.alarms.onAlarm.addListener(() => {
   chrome.notifications.create({
     type: 'basic',
     iconUrl: 'stay_hydrated.png',
-    title: 'Time to Hydrate',
-    message: "Everyday I'm Guzzlin'!",
-    buttons: [{ title: 'Keep it Flowing.' }],
+    title: 'You Can Procrastinate again',
+    message: "Thats enough work for now!",
+    buttons: [{ title: 'Get Back To Work' }],
     priority: 0
   });
 });
@@ -19,4 +19,15 @@ chrome.notifications.onButtonClicked.addListener(async () => {
   const item = await chrome.storage.sync.get(['minutes']);
   chrome.action.setBadgeText({ text: 'ON' });
   chrome.alarms.create({ delayInMinutes: item.minutes });
+});
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.msg === "tab_close_msg") {
+        chrome.tabs.query({
+            currentWindow: true,
+            active: true
+        }, function (tabs) {
+            chrome.tabs.remove(tabs[0].id);
+        });
+    }
 });
