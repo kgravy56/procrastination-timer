@@ -25,6 +25,12 @@ function clearAlarm() {
   chrome.alarms.clearAll();
   window.close();
 }
+  async function getCurrentTab() {
+    let queryOptions = { active: true, lastFocusedWindow: true };
+    let [tab] = await chrome.tabs.query(queryOptions);
+    return tab;
+  }
+}
 
 // An Alarm delay of less than the minimum 1 minute will fire
 // in approximately 1 minute increments if released
