@@ -1,14 +1,20 @@
 {
-  "name": "Drink Water Event Popup",
-  "description": "Demonstrates usage and features of the event page by reminding user to drink water",
+  "name": "Procrastination Timer",
+  "description": "Stops you from procrastinating by closing unproductive tabs",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["alarms", "notifications", "storage", "chrome.tabs", "activeTab"],
+  "permissions": [
+    "alarms",
+    "notifications",
+    "storage",
+    "chrome.tabs",
+    "activeTab"
+  ],
   "background": {
-    "service_worker": "background.js"
+  "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Drink Water Event",
+    "default_title": "Stop Procrastinating",
     "default_popup": "popup.html"
   },
   "icons": {
