@@ -1,7 +1,7 @@
 {
   "name": "Procrastination Timer",
   "description": "Stops you from procrastinating by closing unproductive tabs",
-  "version": "1.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "permissions": [
     "alarms",
